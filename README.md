@@ -8,7 +8,8 @@ $ git clone https://github.com/RoderickLabel/OVNIs.git
 ```
 
 ### Dependências
-
+  - [Aura/Cli](https://github.com/auraphp/Aura.Cli)
+  - [League/Csv](https://github.com/thephpleague/csv)
 ```
 $ composer update
 ```
