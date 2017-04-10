@@ -1,0 +1,12 @@
+{
+    "require": {
+        "phpunit/phpunit": "^6.1",
+        "league/csv": "^8.2",
+        "aura/cli": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ovni\\" : "src/ovni"
+        }
+    }
+}
