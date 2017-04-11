@@ -1,5 +1,5 @@
 # Desafio dos OVNIs
-Teste para Desenvolvedor na Fundação Casper Líbero, foi escolhido o [Desafio dos OVNIS](https://bitbucket.org/casperlibero/fcl-dev-test/src/59cec30479ead0e80d3f38bc79475fe3efd6a253/TESTE-3.md), trata-se de uma simples aplicação CLI.
+[Teste para Desenvolvedor na Fundação Casper Líbero](https://bitbucket.org/casperlibero/fcl-dev-test), foi escolhido o [Desafio dos OVNIS](https://bitbucket.org/casperlibero/fcl-dev-test/src/59cec30479ead0e80d3f38bc79475fe3efd6a253/TESTE-3.md), e este projeto trata-se de uma simples aplicação CLI.
 
 ### Instalação
 
