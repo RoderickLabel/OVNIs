@@ -11,8 +11,9 @@ $ git clone https://github.com/RoderickLabel/OVNIs.git
   - [Aura/Cli](https://github.com/auraphp/Aura.Cli)
   - [League/Csv](https://github.com/thephpleague/csv)
 
-Como as dependências já encontram-se inclusas no arquivo composer.json basta rodar o seguinte comando com o composer:
+Como as dependências já encontram-se inclusas no arquivo composer.json basta entrar no diretório criado e resolver as dependências via composer rodando os seguintes comandos:
 ```
+$ cd OVNIs/
 $ composer update
 ```
 
