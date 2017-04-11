@@ -10,6 +10,8 @@ $ git clone https://github.com/RoderickLabel/OVNIs.git
 ### Dependências
   - [Aura/Cli](https://github.com/auraphp/Aura.Cli)
   - [League/Csv](https://github.com/thephpleague/csv)
+
+Como as dependências já encontram-se inclusas no arquivo composer.json basta rodar o seguinte comando com o composer:
 ```
 $ composer update
 ```
