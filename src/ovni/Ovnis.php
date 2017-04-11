@@ -2,11 +2,14 @@
 
 namespace Ovni;
 
+/**
+ * @author Rodrigo Ruotolo <roderickruotolo@gmail.com>
+ */
 class Ovnis 
 {
 
     /**
-     * @var @arrLetters array
+     * @var array @arrLetters
      */
     private $arrLetters;
 
@@ -16,7 +19,7 @@ class Ovnis
     }
 
     /**
-     * @return $arrLetters array
+     * @return array $arrLetters
      */
     public function getArrLetters ()
     {
@@ -24,7 +27,7 @@ class Ovnis
     }
 
     /**
-     * @param $letters array
+     * @param array $letters
      */
     public function setArrLetters (array $letters) 
     {
@@ -33,7 +36,7 @@ class Ovnis
 
     /**
      * Busca o número correspondente da letra
-     * @param $letter char
+     * @param char $letter
      * @return int
      */ 
     public function searchLetterNumber($letter) 
@@ -48,8 +51,8 @@ class Ovnis
     /**
      * Converte palavra para inteiro conforme 
      * lógica previamente especificada
-     * @param $word string
-     * @return $result integer
+     * @param string $word
+     * @return integer $result
      */
     public function convertWordToCodeNumber($word) 
     {
@@ -71,8 +74,8 @@ class Ovnis
 
     /**
      * Retorna o Grupo Indesejado
-     * @param $groups array
-     * @return $group string
+     * @param array $groups 
+     * @return string $group
      */
     public function unwantedGroup(array $groups) 
     {

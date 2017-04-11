@@ -17,9 +17,8 @@ $stdio = $cli_factory->newStdio();
 $options = ['file,f'];
 $getopt = $context->getopt($options);
 
-// obtém o valor do parametro file
+// obtém o valor do parametro file e interrompe com msg caso faltar
 $filename = $getopt->get(1);
-
 if (!$filename || !is_file(__DIR__ . $filename)) {
     $stdio->errln("<<red>>Por gentileza indique o caminho de um arquivo válido!<<reset>>");
     exit(Status::USAGE);
@@ -28,6 +27,7 @@ if (!$filename || !is_file(__DIR__ . $filename)) {
 /** 
  * Seta o caminho do arquivo CSV de acordo com o valor 
  * passado via parametro na app ou o valor default
+ * retorna a resposta ao ecrã
  */
 if ($getopt->get('--file')) {
     // Abre o arquivo especificado no param, parseia CSV, e padroniza para a Classe OVNI
@@ -37,7 +37,6 @@ if ($getopt->get('--file')) {
     foreach ($res as $row) {
         $groups[$row[0]] = $row[1];
     }
-    // Retorna a resposta ao ecrã
     $answer = $ovnis->unwantedGroup($groups);
     $stdio->outln("<<green>>O grupo que não será levado é o {$answer}<<reset>>");
 }
