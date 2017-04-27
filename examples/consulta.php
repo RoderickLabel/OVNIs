@@ -38,7 +38,6 @@ if ($getopt->get('--file')) {
     }
 
     $answer = $ovnis->unwantedGroup($ovnis->getGroups());
-
     $stdio->outln("<<green>>O grupo que não será levado é o {$answer->getGroup()}.<<reset>>");
 }
 
