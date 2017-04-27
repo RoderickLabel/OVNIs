@@ -2,13 +2,14 @@
 
 use PHPUnit\Framework\TestCase;
 use Ovni\Ovnis;
+use Ovni\Group;
 
 class OvnisTest extends TestCase
 {
 
     public function testSearchLetterNumber () 
     {
-        $ovnis = new Ovnis();
+        $ovnis = new Ovnis();        
         $number = $ovnis->searchLetterNumber("A");
         $this->assertEquals(1, $number);
         $number = $ovnis->searchLetterNumber("Z");
@@ -33,14 +34,12 @@ class OvnisTest extends TestCase
     public function testUnwantedGroup ()
     {
         $ovnis = new Ovnis();
-        $groups = array(
-            "HALLEY"  => "AMARELO",
-            "ENCKE"   => "VERMELHO",
-            "WOLF"    => "PRETO",
-            "KUSHIDA" => "AZUL"
-        );
-
-        $this->assertEquals("VERMELHO", $ovnis->unwantedGroup($groups));
+        $ovnis->addGroup(new Group("HALLEY", "AMARELO"));
+        $ovnis->addGroup(new Group("ENCKE", "VERMELHO"));
+        $ovnis->addGroup(new Group("WOLF", "PRETO"));
+        $ovnis->addGroup(new Group("KUSHIDA", "AZUL"));
+        $group = $ovnis->unwantedGroup($ovnis->getGroups());
+        $this->assertEquals("VERMELHO", $group->getGroup());
     }
 
 }

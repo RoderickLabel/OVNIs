@@ -2,20 +2,29 @@
 
 namespace Ovni;
 
+use ArrayObject;
+
 /**
  * @author Rodrigo Ruotolo <roderickruotolo@gmail.com>
  */
 class Ovnis 
 {
 
-    /**
-     * @var array @arrLetters
+    /** 
+     * @var array $arrLetters 
      */
     private $arrLetters;
 
+    /**
+     * @var array $groups
+     */
+    private $groups;
+
+
     public function __construct()
     {
-        $this->setArrLetters(range('A', 'Z'));
+        $this->arrLetters = range('A', 'Z');
+        $this->groups = new ArrayObject();
     }
 
     /**
@@ -27,11 +36,19 @@ class Ovnis
     }
 
     /**
-     * @param array $letters
+     * @return array $groups Retorna um array de objetos Group
      */
-    public function setArrLetters (array $letters) 
+    public function getGroups()
     {
-        $this->arrLetters = $letters;
+        return $this->groups;
+    }
+
+    /**
+     * @param Group $group
+     */
+    public function addGroup(Group $group)
+    {
+        $this->groups->append($group);
     }
 
     /**
@@ -41,11 +58,7 @@ class Ovnis
      */ 
     public function searchLetterNumber($letter) 
     {
-        for ($i = 0; $i < count($this->arrLetters); $i++) {
-            if ($letter == $this->arrLetters[$i]) {
-                return $i + 1;
-            }
-        }
+        return array_search($letter, $this->arrLetters) + 1;
     }
 
     /**
@@ -74,13 +87,13 @@ class Ovnis
 
     /**
      * Retorna o Grupo Indesejado
-     * @param array $groups 
+     * @param ArrayObject $groups 
      * @return string $group
      */
-    public function unwantedGroup(array $groups) 
+    public function unwantedGroup(ArrayObject $groups) 
     {
-        foreach ($groups as $comet => $group) {
-            if (!$this->isWantedGroup($comet, $group)) {
+        foreach ($groups as $group) {
+            if (!$this->isWantedGroup($group->getComet(), $group->getGroup())) {
                 return $group;
             }        
         }

@@ -4,6 +4,7 @@ require_once (__DIR__ . "/../vendor/autoload.php");
 use Aura\Cli\CliFactory;
 use Aura\Cli\Status;
 use League\Csv\Reader;
+use Ovni\Group;
 use Ovni\Ovnis;
 
 $ovnis = new Ovnis();
@@ -24,17 +25,21 @@ if (!$filename || !is_file(__DIR__ . $filename)) {
 
 /** 
  * Seta o caminho do arquivo CSV de acordo com parametro, parseia CSV, 
- * padroniza para a Classe OVNI, e retorna a resposta ao ecrã.
+ * popula objetos Groups para a Classe OVNI, e retorna a resposta ao ecrã.
  */
 if ($getopt->get('--file')) {
+    
     $csv = Reader::createFromPath(__DIR__ . $filename);
     $res = $csv->setOffset(1)->setLimit(4)->fetchAll();
-    $groups = array();
+
     foreach ($res as $row) {
-        $groups[$row[0]] = $row[1];
+        list($comet, $group) = $row;
+        $ovnis->addGroup(new Group($comet, $group));
     }
-    $answer = $ovnis->unwantedGroup($groups);
-    $stdio->outln("<<green>>O grupo que não será levado é o {$answer}.<<reset>>");
+
+    $answer = $ovnis->unwantedGroup($ovnis->getGroups());
+
+    $stdio->outln("<<green>>O grupo que não será levado é o {$answer->getGroup()}.<<reset>>");
 }
 
 // done!
