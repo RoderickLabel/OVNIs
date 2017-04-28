@@ -28,14 +28,6 @@ class Ovnis
     }
 
     /**
-     * @return array $arrLetters
-     */
-    public function getArrLetters ()
-    {
-        return $this->arrLetters;
-    }
-
-    /**
      * @return array $groups Retorna um array de objetos Group
      */
     public function getGroups()
